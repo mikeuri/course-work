@@ -6272,3 +6272,8 @@
 [INFO ] 2023-10-08 19:16:17.062 [main] ProjectManagementAPITest - Random actual Project name to remove: Project_834
 [INFO ] 2023-10-08 19:16:17.303 [main] ProjectManagementAPITest - Random actual Project name to remove with No Auth: Project_923
 [DEBUG] 2023-10-08 19:16:21.481 [main] ProjectManagementUITest - Project ID: 280
+[INFO ] 2023-10-12 22:36:23.135 [main] ProjectManagementAPITest - Random project name to create: Project_324
+[INFO ] 2023-10-12 22:36:26.325 [main] ProjectManagementAPITest - Project name to check with no auth: Project_029
+[INFO ] 2023-10-12 22:36:26.500 [main] ProjectManagementAPITest - Random actual Project name to recreate: admin_project
+[INFO ] 2023-10-12 22:36:26.877 [main] ProjectManagementAPITest - Random actual Project name to remove: Project_490
+[INFO ] 2023-10-12 22:36:27.067 [main] ProjectManagementAPITest - Random actual Project name to remove with No Auth: Project_919

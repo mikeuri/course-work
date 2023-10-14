@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class ProjectManagementUITest extends BaseGUITest
 {
-    @Test(groups = "createProjectWithUI")
+    @Test(groups = {"createProjectWithUI", "smoke"})
     public void createValidProject() {
         LoginPage loginPage = new LoginPage();
 

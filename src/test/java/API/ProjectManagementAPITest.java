@@ -12,7 +12,7 @@ import java.util.*;
 
 @Test(priority = 0)
 public class ProjectManagementAPITest extends BaseAPITest {
-    @Test(groups = "createProject", priority = 0)
+    @Test(groups = {"createProject", "smoke"}, priority = 0)
     public void createProject() {
         //Setup
         String projectName = "Project_" + RandomStringUtils.random(3, false, true);

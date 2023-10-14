@@ -42,6 +42,7 @@ public class TestbedGrid extends BaseTestbed
             throw new RuntimeException("Unsupported browser: " + Config.WEB_BROWSER.value);
 
         String gridUrl = "http://" + gridHost + ":" + gridPort + "/wd/hub";
+        System.out.println("gridUrl: " + gridUrl);
         try {
             URL url = new URL(gridUrl);
             return new RemoteWebDriver(url, caps);

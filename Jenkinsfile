@@ -56,7 +56,7 @@ node {
             // sh
             withMaven(maven: 'maven-3.9.5') {
                 sh "mvn clean"
-                sh "mvn test -Denv=${params.environment} -Dgroups=${params.groups} -Dweb.browser.no.gui=${params.NO_GUI} -Dtestbed=grid -Dweb.browser.name=${params.browser}"
+                sh "mvn -Denv=${params.environment} -Dgroups=${params.groups} -Dweb.browser.no.gui=${params.NO_GUI} -Dtestbed=grid -Dweb.browser.name=${params.browser} test"
             }
         }
     } catch (err) {

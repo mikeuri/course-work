@@ -1,13 +1,9 @@
 package automation;
 
-//import automation.utils.MySQLDriver;
+import automation.testbed.BaseTestbed;
+import automation.testbed.TestbedGrid;
+import automation.testbed.TestbedLocal;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.time.Duration;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Session
 {
@@ -23,47 +19,21 @@ public class Session
         return _instance.get();
     }
 
-//    private MySQLDriver _mysql;
-//
-//    public MySQLDriver mysql() {
-//        if (this._mysql == null)
-//            this._mysql = new MySQLDriver();
-//        return this._mysql;
-//    }
-
+    private BaseTestbed _testbed;
     private WebDriver _webdriver;
 
     public WebDriver webdriver() {
         if (this._webdriver == null) {
-            if ("chrome".equalsIgnoreCase(Config.WEB_BROWSER.value)) {
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("wm-window-animations-disabled");
-                options.addArguments("ash-disable-smooth-screen-rotation");
-                options.addArguments("disable-smooth-scrolling");
-                options.addArguments("disable-infobars");
-                options.addArguments("disable-default-apps");
-                options.addArguments("disable-extensions");
-                //options.addArguments("lang=en_US");
-                options.setAcceptInsecureCerts(true);
-                //options.addArguments("auto-open-devtools-for-tabs");
-                Map<String, Object> preferences = new HashMap<>();
-                preferences.put("history.saving_disabled", true);
-                preferences.put("browser.show_home_button", false);
-                preferences.put("credentials_enable_service", false);
-                preferences.put("profile.password_manager_enabled", false);
-                options.setExperimentalOption("prefs", preferences);
-                options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation", "load-extension"});
-                options.setExperimentalOption("useAutomationExtension", false);
-                if (Config.WEB_BROWSER_NO_GUI.isTrue()) {
-                    options.addArguments("--headless");
-                    options.addArguments("--no-sandbox");
-                }
-                this._webdriver = new ChromeDriver(options);
-            }
-            //TODO: Add Firefox here
-            //TODO: Add headless here
+            if ("local".equalsIgnoreCase(Config.TESTBED.value)) {
+                // Create local testbed
+                this._testbed = new TestbedLocal();
+            } else if ("grid".equalsIgnoreCase(Config.TESTBED.value)) {
+                // Create grid testbed
+                this._testbed = new TestbedGrid();
+            } else
+                throw new RuntimeException("Unsupported testbed: " + Config.TESTBED.value);
 
-            this._webdriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            this._webdriver = this._testbed.createDriver();
             this._webdriver.manage().window().maximize();
         }
 

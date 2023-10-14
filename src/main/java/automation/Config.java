@@ -9,24 +9,24 @@ import java.util.Properties;
 
 public class Config
 {
-    static final private List<Param> _paramsList = new LinkedList<>();
-    static final public Param HTTP_BASE_PROTO   = new Param("http.base.protocol",   "http",      true);
-    static final public Param HTTP_BASE_HOST     = new Param("http.base.host",    "localhost", true);
-    static final public Param HTTP_BASE_PORT    = new Param("http.base.port",   "8001",      true);
-    static final public Param API_AUTH_USER_PASSWORD = new Param("api.auth.user.password");
-    static final public Param API_AUTH_USER_USERNAME = new Param("api.auth.user.username");
-    static final public Param API_AUTH_APP_PASSWORD = new Param("api.auth.app.password");
-    static final public Param API_AUTH_APP_USERNAME = new Param("api.auth.app.username");
-
-    static final public Param API_AUTH_HEADER   = new Param("api.auth.header");
-    static final public Param MYSQL_HOST        = new Param("mysql.host",       null,        true);
-    static final public Param MYSQL_PORT        = new Param("mysql.port",       "3306",      true);
-    static final public Param MYSQL_DATABASE    = new Param("mysql.database",   null,        true);
-    static final public Param MYSQL_USERNAME    = new Param("mysql.username",   null,        true);
-    static final public Param MYSQL_PASSWORD    = new Param("mysql.password",   null,        true);
-
-    static final public Param WEB_BROWSER           = new Param("web.browser",   "chrome",       true);
-    static final public Param WEB_BROWSER_NO_GUI    = new Param("web.browser.no.gui",   "false", true);
+    static final private List<Param> _paramsList        = new LinkedList<>();
+    static final public Param HTTP_BASE_PROTO           = new Param("http.base.protocol", "http", true);
+    static final public Param HTTP_BASE_HOST            = new Param("http.base.host", "localhost", true);
+    static final public Param HTTP_BASE_PORT            = new Param("http.base.port", "8001",      true);
+    static final public Param API_AUTH_USER_PASSWORD    = new Param("api.auth.user.password");
+    static final public Param API_AUTH_USER_USERNAME    = new Param("api.auth.user.username");
+    static final public Param API_AUTH_APP_PASSWORD     = new Param("api.auth.app.password");
+    static final public Param API_AUTH_APP_USERNAME     = new Param("api.auth.app.username");
+    static final public Param API_AUTH_HEADER           = new Param("api.auth.header");
+    static final public Param TESTBED                   = new Param("testbed", "local",     true);
+    static final public Param WEB_BROWSER               = new Param("web.browser",   "chrome",       true);
+    static final public Param WEB_BROWSER_NO_GUI        = new Param("web.browser.no.gui",   "false", true);
+    static final public Param BROWSER_WIN_WIDTH         = new Param("web.browser.win.width",   "1024", true);
+    static final public Param BROWSER_WIN_HEIGHT        = new Param("web.browser.win.height",  "786",  true);
+    static final public Param SELENIUM_GRID_CHROME_HOST = new Param("selenium.grid.chrome.host",    "selenium-chrome", true);
+    static final public Param SELENIUM_GRID_CHROME_PORT = new Param("selenium.grid.chrome.port",    "4444", true);
+    static final public Param SELENIUM_GRID_FIREFOX_HOST = new Param("selenium.grid.firefox.host",    "selenium-firefox", true);
+    static final public Param SELENIUM_GRID_FIREFOX_PORT = new Param("selenium.grid.firefox.port",    "4445", true);
 
     static {
         InitErrors.showErrors();

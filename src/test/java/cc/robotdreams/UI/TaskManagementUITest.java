@@ -52,7 +52,7 @@ public class TaskManagementUITest extends BaseGUITest
         KanboardAPI.removeUser(userID, 1, true);
     }
 
-    @Test(groups = "createTaskWithUI")
+    @Test(groups = {"createTaskWithUI"})
     public void createValidTask() {
         //-------------------------------------
         String taskTitleToAdd = "test_task" + RandomStringUtils.random(3, true, true);
@@ -71,18 +71,16 @@ public class TaskManagementUITest extends BaseGUITest
         //dashboardPage.confirm(); //TODO:check why confirmation doesn't work
 
         ProjectBoard projectBoard = dashboardPage.goToProjectBoard(projectID);
-        //Wait.sleep(500);
         projectBoard.confirm();
 
         projectBoard.addTaskToBacklog(taskTitleToAdd);
-        //Wait.sleep(500);
         Assert.assertTrue(projectBoard.taskDraggableItem.exists());
         Assert.assertEquals(projectBoard.taskDraggableItemTitle.text(), taskTitleToAdd);
 
         testTearDown(projectID, userID);
     }
 
-    @Test(groups = "createTaskWithUI", priority = 1)
+    @Test(groups = {"createTaskWithUI"}, priority = 1)
     public void createInvalidTask() {
         //-------------------------------------
         String taskTitleToAdd = "";
@@ -109,7 +107,7 @@ public class TaskManagementUITest extends BaseGUITest
         testTearDown(projectID, userID);
     }
 
-    @Test(groups = "deleteTaskWithUI", priority = 2)
+    @Test(groups = {"deleteTaskWithUI"}, priority = 2)
     public void deleteTask() {
         //-------------------------------------
         String taskTitleToAdd = "test_task" + RandomStringUtils.random(3, true, true);
@@ -146,7 +144,7 @@ public class TaskManagementUITest extends BaseGUITest
         testTearDown(projectID, userID);
     }
 
-    @Test(groups = "commentTaskWithUI", priority = 3)
+    @Test(groups = {"commentTaskWithUI"}, priority = 3)
     public void addComment() {
         //-------------------------------------
         String taskTitleToAdd = "test_task" + RandomStringUtils.random(3, true, true);
@@ -178,7 +176,7 @@ public class TaskManagementUITest extends BaseGUITest
         testTearDown(projectID, userID);
     }
 
-    @Test(groups = "commentTaskWithUI", priority = 4)
+    @Test(groups = {"commentTaskWithUI"}, priority = 4)
     public void addEmptyComment() {
         //-------------------------------------
         String taskTitleToAdd = "test_task" + RandomStringUtils.random(3, true, true);
@@ -207,4 +205,3 @@ public class TaskManagementUITest extends BaseGUITest
         testTearDown(projectID, userID);
     }
 }
-

@@ -73,7 +73,7 @@ public class ProjectManagementAPITest extends BaseAPITest {
                 .body("error.message", Matchers.equalTo("Unauthorized"));
     }
 
-    @Test(groups = "createProject", priority = 3)
+    @Test(groups = {"createProject"}, priority = 3)
     public void createExistingProject() { //Allowed action
         //Setup
         Random rand = new Random();
@@ -101,7 +101,7 @@ public class ProjectManagementAPITest extends BaseAPITest {
                 .body("result", Matchers.equalTo(true));
     }
 
-    @Test(groups = "removeProject", priority = 4)
+    @Test(groups = {"removeProject"}, priority = 4)
     public void removeValidProject() {
         //Setup
         String projectName = "Project_" + RandomStringUtils.random(3, false, true);
@@ -120,7 +120,7 @@ public class ProjectManagementAPITest extends BaseAPITest {
                 .body("result", Matchers.equalTo(true));
     }
 
-    @Test(groups = "removeProject", priority = 4)
+    @Test(groups = {"removeProject"}, priority = 4)
     public void removeValidProjectWithNoAuth() {
         //Setup
         String projectName = "Project_" + RandomStringUtils.random(3, false, true);

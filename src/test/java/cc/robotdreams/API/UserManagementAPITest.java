@@ -47,7 +47,7 @@ public class UserManagementAPITest extends BaseAPITest
                 .body("result", Matchers.equalTo(true));
     }
 
-    @Test(groups = "createUser", priority = 1)
+    @Test(groups = {"createUser"}, priority = 1)
     public void createUserWithInvalidParams() {
         String username = "biloute1063";
 
@@ -59,7 +59,7 @@ public class UserManagementAPITest extends BaseAPITest
                 .body("error.data", Matchers.equalTo("Wrong number of arguments"));
     }
 
-    @Test(groups = "createUser", priority = 2)
+    @Test(groups = {"createUser"}, priority = 2)
     public void createUserWithNoAuth() {
         String username = RandomStringUtils.random(10, true, true);
         String password = "123456";
@@ -73,7 +73,7 @@ public class UserManagementAPITest extends BaseAPITest
                 .body("error.message", Matchers.equalTo("Unauthorized"));
     }
 
-    @Test(groups = "createUser", priority = 3)
+    @Test(groups = {"createUser"}, priority = 3)
     public void createExistingUser() { //Action is not allowed
         Random rand = new Random();
 
@@ -91,7 +91,7 @@ public class UserManagementAPITest extends BaseAPITest
                 .body("result", Matchers.equalTo(false));
     }
 
-    @Test(groups = "removeUser", priority = 4)
+    @Test(groups = {"removeUser"}, priority = 4)
     public void removeValidUser(){
         String username = RandomStringUtils.random(10, true, true);
         Response creationResult = KanboardAPI.createUser(username, "password", requestID, true);
@@ -112,7 +112,7 @@ public class UserManagementAPITest extends BaseAPITest
                 .body("result", Matchers.equalTo(false));
     }
 
-    @Test(groups = "removeUser", priority = 5)
+    @Test(groups = {"removeUser"}, priority = 5)
     public void removeValidUserWithNoAuth(){
         String username = RandomStringUtils.random(10, true, true);
         Response creationResult = KanboardAPI.createUser(username, "password", requestID, true);
@@ -133,13 +133,3 @@ public class UserManagementAPITest extends BaseAPITest
                 .body("result", Matchers.equalTo(true));
     }
 }
-
-//TODO: Add groups for tests
-//TODO: Allure reporting
-//TODO: Selenide
-//TODO: (optional) Cucumber
-//TODO: UI тести повинні запускатися для Chrome headless browser, Chrome browser, Firefox
-//TODO: Remove commented code
-//TODO: Clean up properties and Config file
-//TODO: Jenkins
-//TODO: Remove TO_DOs

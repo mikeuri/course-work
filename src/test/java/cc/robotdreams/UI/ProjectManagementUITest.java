@@ -34,7 +34,6 @@ public class ProjectManagementUITest extends BaseGUITest
         logger.debug("Project ID: " + projectID);
 
         KanboardAPI.removeProject(projectID, 1, true);
-        //Wait.sleep(2000);
     }
 
     @Test(groups = {"createProjectWithUI"})
@@ -50,6 +49,5 @@ public class ProjectManagementUITest extends BaseGUITest
 
         Assert.assertTrue(dashboardPage.projectNameErrorMsg.exists());
         Assert.assertEquals(dashboardPage.projectNameErrorMsg.text(), "The project name is required");
-        //Wait.sleep(2000);
     }
 }

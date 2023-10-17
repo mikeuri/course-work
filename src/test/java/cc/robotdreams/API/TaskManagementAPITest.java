@@ -48,7 +48,7 @@ public class TaskManagementAPITest extends BaseAPITest
         KanboardAPI.removeProject(projectID, requestID, true);
     }
 
-    @Test(groups = "createTask", priority = 1)
+    @Test(groups = {"createTask"}, priority = 1)
     public void createTaskForInvalidProject() {
         String title = "Test_task";
         Integer ownerID = 1;
@@ -63,7 +63,7 @@ public class TaskManagementAPITest extends BaseAPITest
                 .body("result", Matchers.equalTo(false));
     }
 
-    @Test(groups = "createTask", priority = 2)
+    @Test(groups = {"createTask"}, priority = 2)
     public void createTaskWithNoAuth() {
         //Setup
         String projectName = "Project_" + RandomStringUtils.random(3, false, true);
@@ -84,7 +84,7 @@ public class TaskManagementAPITest extends BaseAPITest
         KanboardAPI.removeProject(projectID, requestID, true);
     }
 
-    @Test(groups = "removeTask", priority = 3)
+    @Test(groups = {"removeTask"}, priority = 3)
     public void removeTask() {
         //Setup
         String projectName = "Project_" + RandomStringUtils.random(3, false, true);
@@ -110,7 +110,7 @@ public class TaskManagementAPITest extends BaseAPITest
         KanboardAPI.removeProject(projectID, requestID, true);
     }
 
-    @Test(groups = "removeTask", priority = 4)
+    @Test(groups = {"removeTask"}, priority = 4)
     public void removeTaskWithNoAuth() {
         //Setup
         String projectName = "Project_" + RandomStringUtils.random(3, false, true);
@@ -135,7 +135,7 @@ public class TaskManagementAPITest extends BaseAPITest
         KanboardAPI.removeProject(projectID, requestID, true);
     }
 
-    @Test(groups = "removeTask", priority = 5)
+    @Test(groups = {"removeTask"}, priority = 5)
     public void removeNonexistentTask() {
         //Setup
         String projectName = "Project_" + RandomStringUtils.random(3, false, true);
@@ -155,8 +155,5 @@ public class TaskManagementAPITest extends BaseAPITest
 
         //Teardown
         KanboardAPI.removeProject(projectID, requestID, true);
-
     }
-
-
 }

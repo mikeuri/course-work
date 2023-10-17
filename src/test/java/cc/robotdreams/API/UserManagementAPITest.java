@@ -1,4 +1,4 @@
-package API;
+package cc.robotdreams.API;
 
 import automation.app.api.KanboardAPI;
 import automation.base.BaseAPITest;

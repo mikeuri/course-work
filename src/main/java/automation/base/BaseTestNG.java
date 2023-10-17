@@ -33,7 +33,7 @@ public class BaseTestNG
         }*/
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void afterSuiteTestNG() {
         String envFilePath = Config.ALLURE_RESULTS.value + "/environment.properties";
         try {

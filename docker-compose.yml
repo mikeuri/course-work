@@ -42,7 +42,7 @@ services:
     #restart: always
 
   selenium-chrome:
-    image: "selenium/standalone-chrome:117.0-chromedriver-117.0"
+    image: "selenium/standalone-chrome:118.0"
     container_name: "selenium-chrome"
     ports:
       - 4444:4444
@@ -51,7 +51,7 @@ services:
       - default
 
   selenium-firefox:
-    image: "selenium/standalone-firefox:latest"
+    image: "selenium/standalone-firefox:118.0"
     container_name: "selenium-firefox"
     ports:
       - 4445:4445

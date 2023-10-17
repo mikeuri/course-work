@@ -1,4 +1,4 @@
-package UI;
+package cc.robotdreams.UI;
 
 import automation.app.api.KanboardAPI;
 import automation.app.site.DashboardPage;
@@ -37,7 +37,7 @@ public class ProjectManagementUITest extends BaseGUITest
         //Wait.sleep(2000);
     }
 
-    @Test(groups = "createProjectWithUI")
+    @Test(groups = {"createProjectWithUI"})
     public void emptyProjectName() {
         LoginPage loginPage = new LoginPage();
 

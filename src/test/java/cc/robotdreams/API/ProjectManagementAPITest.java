@@ -1,4 +1,4 @@
-package API;
+package cc.robotdreams.API;
 
 import automation.app.api.KanboardAPI;
 import automation.base.BaseAPITest;
@@ -49,7 +49,7 @@ public class ProjectManagementAPITest extends BaseAPITest {
                 .body("result", Matchers.equalTo(true));
     }
 
-    @Test(groups = "createProject", priority = 1)
+    @Test(groups = {"createProject"}, priority = 1)
     public void createProjectWithInvalidParams() {
         Response result = KanboardAPI.createProjectWithWrongRequestBody(requestID);
         result
@@ -59,7 +59,7 @@ public class ProjectManagementAPITest extends BaseAPITest {
                 .body("error.data", Matchers.equalTo("Wrong number of arguments"));
     }
 
-    @Test(groups = "createProject", priority = 2)
+    @Test(groups = {"createProject"}, priority = 2)
     public void createProjectWithNoAuth() {
         String projectName = "Project_" + RandomStringUtils.random(3, false, true);
         Integer ownerID = 1;

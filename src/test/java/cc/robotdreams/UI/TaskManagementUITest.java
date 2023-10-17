@@ -1,4 +1,4 @@
-package UI;
+package cc.robotdreams.UI;
 
 import automation.app.api.KanboardAPI;
 import automation.app.site.DashboardPage;

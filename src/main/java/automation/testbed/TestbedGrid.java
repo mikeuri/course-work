@@ -25,7 +25,7 @@ public class TestbedGrid extends BaseTestbed
             gridPort = Config.SELENIUM_GRID_CHROME_PORT.value;
             caps.setCapability(ChromeOptions.CAPABILITY, this.getCommonChromeOptions());
             caps.setCapability(CapabilityType.BROWSER_NAME, Browser.CHROME.browserName());
-            caps.setCapability(CapabilityType.TIMEOUTS, 30);
+            //caps.setCapability(CapabilityType.TIMEOUTS, 30);
             caps.setCapability("se:vncEnabled", true);
             caps.setCapability(CapabilityType.BROWSER_VERSION, "117.0");
             caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.LINUX);

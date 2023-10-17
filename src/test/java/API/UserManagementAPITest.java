@@ -13,7 +13,7 @@ import java.util.*;
 @Test(priority = 2)
 public class UserManagementAPITest extends BaseAPITest
 {
-    @Test(groups = "createUser", priority = 0)
+    @Test(groups = {"createUser"}, priority = 0)
     public void createValidUser() {
         String username = RandomStringUtils.random(10, true, true);
         String password = "123456";

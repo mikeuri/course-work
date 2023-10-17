@@ -27,6 +27,7 @@ public class Config
     static final public Param SELENIUM_GRID_CHROME_PORT = new Param("selenium.grid.chrome.port",    "4444", true);
     static final public Param SELENIUM_GRID_FIREFOX_HOST = new Param("selenium.grid.firefox.host",    "selenium-firefox", true);
     static final public Param SELENIUM_GRID_FIREFOX_PORT = new Param("selenium.grid.firefox.port",    "4445", true);
+    static final public Param ALLURE_RESULTS = new Param("allure.results.directory");
 
     static {
         InitErrors.showErrors();
@@ -97,9 +98,13 @@ public class Config
             environmentName = System.getProperty("env", "dev");
             envProperties.putAll(getResourceProperties("common.properties"));
             envProperties.putAll(getResourceProperties("env/" + environmentName + ".properties"));
-            //envProperties.putAll(getResourceProperties("allure.properties"));
+            envProperties.putAll(getResourceProperties("allure.properties"));
         }
         return envProperties;
+    }
+
+    static public List<Param> list() {
+        return new ArrayList<>(_paramsList);
     }
 
     static public String getEnvironmentName() {

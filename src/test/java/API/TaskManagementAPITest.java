@@ -15,7 +15,7 @@ import java.util.List;
 @Test(priority = 1)
 public class TaskManagementAPITest extends BaseAPITest
 {
-    @Test(groups = "createTask")
+    @Test(groups = {"createTask"})
     public void createTask() {
         //Setup
         String projectName = "Project_" + RandomStringUtils.random(3, false, true);

@@ -5,14 +5,18 @@ import io.qameta.allure.Attachment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Properties;
 
 public class BaseTestNG
 {
@@ -27,6 +31,23 @@ public class BaseTestNG
         for (Object obj : testArgs) {
             logger.debug("Argument " + i ++ + ": " + obj);
         }*/
+    }
+
+    @AfterSuite
+    public void afterSuiteTestNG() {
+        String envFilePath = Config.ALLURE_RESULTS.value + "/environment.properties";
+        try {
+            Properties props = new Properties();
+            FileOutputStream fos = new FileOutputStream(envFilePath);
+            for (Config.Param param : Config.list()) {
+                props.put(param.name, param.value);
+            }
+            // props.putAll(System.getenv());
+            props.store(fos, "Config properties");
+            fos.close();
+        } catch (IOException e) {
+            throw new RuntimeException("Could not write resource properties file " + envFilePath);
+        }
     }
 
     @AfterMethod(alwaysRun = true)

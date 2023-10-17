@@ -24,7 +24,7 @@ public class TestbedGrid extends BaseTestbed
             gridHost = Config.SELENIUM_GRID_CHROME_HOST.value;
             gridPort = Config.SELENIUM_GRID_CHROME_PORT.value;
             caps.setCapability(ChromeOptions.CAPABILITY, this.getCommonChromeOptions());
-            caps.setCapability(CapabilityType.BROWSER_NAME, Browser.CHROME);
+            caps.setCapability(CapabilityType.BROWSER_NAME, Browser.CHROME.browserName());
             caps.setCapability(CapabilityType.TIMEOUTS, 30);
             caps.setCapability("se:vncEnabled", true);
             caps.setCapability(CapabilityType.BROWSER_VERSION, "117.0");
@@ -37,7 +37,7 @@ public class TestbedGrid extends BaseTestbed
             gridHost = Config.SELENIUM_GRID_FIREFOX_HOST.value;
             gridPort = Config.SELENIUM_GRID_FIREFOX_PORT.value;
             caps.setCapability(FirefoxOptions.FIREFOX_OPTIONS, this.getCommonFirefoxOptions());
-            caps.setCapability(CapabilityType.BROWSER_NAME, Browser.FIREFOX);
+            caps.setCapability(CapabilityType.BROWSER_NAME, Browser.FIREFOX.browserName());
         } else
             throw new RuntimeException("Unsupported browser: " + Config.WEB_BROWSER.value);
 

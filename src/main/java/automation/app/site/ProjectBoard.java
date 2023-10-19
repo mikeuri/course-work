@@ -2,6 +2,7 @@ package automation.app.site;
 
 import automation.Config;
 import automation.base.BaseSelenidePage;
+import automation.utils.Wait;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
@@ -31,6 +32,7 @@ public class ProjectBoard extends BaseSelenidePage
 
     public void addTaskToBacklog(String taskTitle) {
         addTaskToBacklogBtn.click();
+        Wait.sleep(500);
         if (modalOverlay.exists()) {
             taskTitleField.val(taskTitle);
             signInBtn.click();
@@ -53,6 +55,7 @@ public class ProjectBoard extends BaseSelenidePage
 
     public void addComment(String comment) {
         addCommentItem.click();
+        Wait.sleep(500);
         if (modalTextEditor.exists()) {
             modalTextEditor.val(comment);
             modalSaveBtn.click();

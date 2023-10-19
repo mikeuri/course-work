@@ -10,6 +10,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Test(priority = 3)
 public class ProjectManagementUITest extends BaseGUITest
 {
     @Test(groups = {"createProjectWithUI", "smoke"})

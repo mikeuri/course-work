@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Test(priority = 4)
 public class TaskManagementUITest extends BaseGUITest
 {
     //-------------------------------------
@@ -74,6 +75,7 @@ public class TaskManagementUITest extends BaseGUITest
         projectBoard.confirm();
 
         projectBoard.addTaskToBacklog(taskTitleToAdd);
+        Wait.sleep(500);
         Assert.assertTrue(projectBoard.taskDraggableItem.exists());
         Assert.assertEquals(projectBoard.taskDraggableItemTitle.text(), taskTitleToAdd);
 
@@ -166,8 +168,8 @@ public class TaskManagementUITest extends BaseGUITest
         //Test
         projectBoard.openContextMenu();
         projectBoard.addComment(comment);
-        TaskPage taskPage = projectBoard.goToTaskPage(taskID);
         Wait.sleep(500);
+        TaskPage taskPage = projectBoard.goToTaskPage(taskID);
         taskPage.confirm();
 
         Assert.assertEquals(comment, taskPage.getComment());
